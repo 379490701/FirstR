@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -60,12 +61,39 @@ public class DetailFragment extends Fragment {
         }
     }
 
+    //当Fragment显示界面时回调此方法，返回显示的View
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =
+        View view = inflater.inflate(R.layout.fragment_detail, container, false);
+        TextView textViewWord = (TextView) view.findViewById(R.id.word);
+        TextView textViewMeaning = (TextView) view.findViewById(R.id.meaning);
+        TextView textViewSample = (TextView) view.findViewById(R.id.sample);
+        switch (ARG_PARAM1) {
+            case "1":
+                textViewWord.setText("apple");
+                textViewMeaning.setText("苹果");
+                textViewSample.setText("This apple is very nice.");
+                break;
+            case "2":
+                textViewWord.setText("Orange");
+                textViewMeaning.setText("橘子");
+                textViewSample.setText("This Orange is very nice.");
+                break;
+            case "3":
+                textViewWord.setText("Banana");
+                textViewMeaning.setText("香蕉");
+                textViewSample.setText("This Banana is very nice.");
+                break;
+            case "4":
+                textViewWord.setText("Lemon");
+                textViewMeaning.setText("柠檬");
+                textViewSample.setText("This Lemon is very nice.");
+                break;
+        }
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

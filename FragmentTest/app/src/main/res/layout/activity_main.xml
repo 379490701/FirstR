@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".Test">
+    tools:context=".MainActivity">
 
     <fragment
-        android:id="@+id/wordslist"
-        android:name="com.example.a37949.test.ItemFragment"
+        android:id="@+id/left_fragment"
+        android:name="com.example.a37949.fragmenttest.LeftFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
     <FrameLayout
-        android:id="@+id/worddetail"
+        android:id="@+id/right_fragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"></FrameLayout>
+
+
 </LinearLayout>
