@@ -4,10 +4,14 @@ import java.util.Stack;
 
 public class abc {
 
+    boolean clear_flag;
+
     //判断运算符优先级
     protected int Priority(char s) {
         switch (s) {
             case '(':
+                return 4;
+            case '√':
                 return 3;
             case '*':
             case '/':
@@ -21,15 +25,12 @@ public class abc {
     }
 
     protected double Result(String str) {
-        if (!str.contains(" ")) {//不包含运算符，不进行运算（含运算符必含空格）
-            double e = Double.parseDouble(str);
-            return e;
-        }
-        int i = 0, flag = 0;
-        double j, tmp = 0, buf = 1, sum = 0, res_2 = 0;
+        clear_flag = true;//运算完成一次自动清空
+        int i = 0, flag = 0, error = 0;
+        double j, tmp = 0, buf = 1, sum, res = 0;
         Stack num = new Stack();
         Stack opt = new Stack();
-        while (!opt.empty() || i < str.length()) {//读取字符串，当字符串不为空或运算符栈不为空时
+        while ((!opt.empty() || i < str.length()) && error == 0) {//读取字符串，当字符串不为空或运算符栈不为空时
             char s;
             if (i < str.length()) {
                 s = str.charAt(i);
@@ -47,10 +48,10 @@ public class abc {
                     flag = 1;//是小数
                     if (s >= '0' && s <= '9') {
                         buf = buf / 10;
-                        res_2 = res_2 + (s - '0') * buf;
+                        res = res + (s - '0') * buf;
                     }
                 }
-                sum = tmp + res_2;
+                sum = tmp + res;
                 i++;
                 char m;
                 if (i < str.length()) {
@@ -63,7 +64,7 @@ public class abc {
                     tmp = 0;//进位清空
                     flag = 0;
                     buf = 1;
-                    res_2 = 0;
+                    res = 0;
                 }
             } else {//不是数字
                 //如果（运算符堆栈为空）或（运算符栈顶为左括号，且下一个字符不是右括号）或（字符的优先级要大于栈顶元素的优先级）
@@ -92,21 +93,30 @@ public class abc {
                             num.push((double) num.pop() * (double) num.pop());
                             break;
                         case '/':
-                            j = (int) num.pop();
+                            j = (double) num.pop();
+                            if (j == 0) {
+                                error = 1;
+                                break;
+                            }
                             num.push((double) num.pop() / j);
                             break;
+                        case '√':
+                            num.push(Math.sqrt((double) num.pop()));
                     }
                     continue;
                 }//if如果（字符为空，且操作符栈不为空）或（字符为右括号）且（运算符栈顶不为左括号）或（字符的优先级要小于栈顶元素的优先级）
             }//else不是数字
         }//while
+        if (error == 1) {
+            return 0;
+        }
         return (double) num.pop();
     }//Result()
 
     public static void main(String[] args) {
         char s = 1;
         abc a = new abc();
-        double b = a.Result("22.34 + 1.990003");
+        double b = a.Result("√9");
         System.out.print(b);
     }
 }

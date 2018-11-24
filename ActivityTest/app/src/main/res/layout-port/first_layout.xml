@@ -14,53 +14,22 @@
         android:gravity="bottom|right"
         android:textSize="70dp" />
 
+
     <Button
         android:id="@+id/button_clear"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_columnSpan="2"
         android:text="C" />
 
     <Button
         android:id="@+id/button_delete"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_columnSpan="2"
         android:text="Delete" />
 
-    <Button
-        android:id="@+id/button_left"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="(" />
 
-    <Button
-        android:id="@+id/button_right"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text=")" />
-
-    <Button
-        android:id="@+id/button_sqrt"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="√" />
-
-    <Button
-        android:id="@+id/button_sin"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="sin" />
-
-    <Button
-        android:id="@+id/button_cos"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="cos" />
-
-    <Button
-        android:id="@+id/button_tan"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="tan" />
 
     <Button
         android:id="@+id/button_1"
@@ -163,5 +132,47 @@
         android:layout_columnWeight="1"
         android:layout_gravity="fill_vertical"
         android:text="=" />
+
+    <Button
+        android:id="@+id/button_left"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="("
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button_right"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text=")"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button_sqrt"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="√"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button_sin"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="sin"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button_cos"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="cos"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button_tan"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="tan"
+        android:visibility="gone" />
 
 </GridLayout>

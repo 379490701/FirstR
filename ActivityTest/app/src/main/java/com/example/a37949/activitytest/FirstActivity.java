@@ -1,5 +1,6 @@
 package com.example.a37949.activitytest;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,11 +12,27 @@ import java.util.Stack;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button button_clear, button_plus, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_0, button_minus, button_divide, button_dot, button_multiply, button_equal, button_left, button_right, button_delete;
+    Button button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_0;
+    Button button_minus, button_divide, button_dot, button_multiply, button_equal, button_left, button_right, button_delete, button_clear, button_plus;
+    Button button_sqrt, button_sin, button_cos, button_tan;
     TextView text;
     boolean clear_flag;
 
     private static final String TAG = "FirstActivity";
+
+    @Override
+    public void onConfigurationChanged(Configuration config) {
+        super.onConfigurationChanged(config);
+
+        if (config.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            setContentView(R.layout.first_layout);//布局
+        }
+
+        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.first_layout);//布局
+        }
+    }
+
 
     //注册事件
     @Override
@@ -23,6 +40,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
         text = findViewById(R.id.text_show);
+        button_cos = findViewById(R.id.button_cos);
+        button_tan = findViewById(R.id.button_tan);
+        button_sin = findViewById(R.id.button_sin);
+        button_sqrt = findViewById(R.id.button_sqrt);
         button_clear = findViewById(R.id.button_clear);
         button_plus = findViewById(R.id.button_plus);
         button_1 = findViewById(R.id.button_1);
@@ -44,6 +65,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         button_right = findViewById(R.id.button_right);
         button_delete = findViewById(R.id.button_delete);
 
+        button_tan.setOnClickListener(this);
+        button_cos.setOnClickListener(this);
+        button_sin.setOnClickListener(this);
+        button_sqrt.setOnClickListener(this);
         button_clear.setOnClickListener(this);
         button_plus.setOnClickListener(this);
         button_1.setOnClickListener(this);
@@ -69,7 +94,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {//每点击一次按钮
         String string = text.getText().toString();//获得已输入的内容，存在string中
-        int i;
+        int i, value = 0;
         switch (v.getId()) {//v表示一个点击动作发生
             case R.id.button_0:
             case R.id.button_1:
@@ -92,6 +117,39 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 }
                 text.setText(string + ((Button) v).getText());//把string中的内容和点击动作获得的内容显示在输出框中
                 Log.d(TAG, "点击了数字按钮，输出string和点击的数字");
+                break;
+            case R.id.button_sqrt:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                    Log.d(TAG, "点击了数字按钮，但清空标志为true，string和输出框置为空");
+                }
+                text.setText(string + " " + ((Button) v).getText() + " ");//把string中的内容和点击动作获得的内容显示在输出框中
+                break;
+            case R.id.button_sin:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                }
+                text.setText(string + " s ");
+                break;
+            case R.id.button_cos:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                }
+                text.setText(string + " c ");
+                break;
+            case R.id.button_tan:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                }
+                text.setText(string + " t ");
                 break;
             case R.id.button_plus:
             case R.id.button_minus:
@@ -145,6 +203,23 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 if (!string.contains(" ")) {//不包含运算符，不进行运算（含运算符必含空格）
                     text.setText(string);
                 } else {
+                    i = 0;
+                    while (i < string.length()) {
+                        char s;
+                        i++;
+                        if (i < string.length()) {
+                            s = string.charAt(i);
+                        } else {
+                            s = '\0';
+                        }
+                        if (string.charAt(i - 1) == ' ' && s >= '0' && s <= '9') {
+                            value = 1;//运算符后面接数字才具有运算价值
+                        }
+                    }
+                    if (value == 0) {
+                        text.setText(string);
+                        break;
+                    }
                     String str = text.getText().toString();
                     double res = Result(str);
                     text.setText(res + "");
@@ -157,6 +232,11 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     protected int Priority(char s) {
         switch (s) {
             case '(':
+                return 4;
+            case '√':
+            case 's':
+            case 'c':
+            case 't':
                 return 3;
             case '*':
             case '/':
@@ -197,7 +277,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                         res = res + (s - '0') * buf;
                     }
                 }
-                sum = tmp + res;
+                sum = tmp + res;//数值由整数部分和小数部分相加得出
                 i++;
                 char m;
                 if (i < str.length()) {
@@ -240,12 +320,20 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                             break;
                         case '/':
                             j = (double) num.pop();
-                            if (j == 0) {
+                            if (j == 0) {//除数为0，返回错误
                                 error = 1;
                                 break;
                             }
                             num.push((double) num.pop() / j);
                             break;
+                        case '√':
+                            num.push(Math.sqrt((double) num.pop()));
+                        case 's':
+                            num.push(Math.sin((double) num.pop()));
+                        case 'c':
+                            num.push(Math.cos((double) num.pop()));
+                        case 't':
+                            num.push(Math.tan((double) num.pop()));
                     }
                     continue;
                 }//if如果（字符为空，且操作符栈不为空）或（字符为右括号）且（运算符栈顶不为左括号）或（字符的优先级要小于栈顶元素的优先级）

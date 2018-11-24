@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="4"
+    android:columnCount="6"
     android:orientation="horizontal">
 
     <TextView
         android:id="@+id/text_show"
         android:layout_width="match_parent"
-        android:layout_height="390dp"
-        android:layout_columnSpan="4"
+        android:layout_height="100dp"
+        android:layout_columnSpan="6"
         android:gravity="bottom|right"
         android:textSize="70dp" />
 
@@ -19,12 +19,6 @@
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:text="C" />
-
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="Delete" />
 
     <Button
         android:id="@+id/button_left"
@@ -38,6 +32,7 @@
         android:layout_columnWeight="1"
         android:text=")" />
 
+
     <Button
         android:id="@+id/button_sqrt"
         android:layout_rowWeight="1"
@@ -45,22 +40,23 @@
         android:text="√" />
 
     <Button
+        android:id="@+id/button_delete"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="Delete" />
+
+    <Button
+        android:id="@+id/button_dot"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="." />
+
+    <Button
         android:id="@+id/button_sin"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:text="sin" />
 
-    <Button
-        android:id="@+id/button_cos"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="cos" />
-
-    <Button
-        android:id="@+id/button_tan"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="tan" />
 
     <Button
         android:id="@+id/button_1"
@@ -88,6 +84,18 @@
 
 
     <Button
+        android:id="@+id/button_multiply"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="*" />
+
+    <Button
+        android:id="@+id/button_cos"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="cos" />
+
+    <Button
         android:id="@+id/button_4"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -106,12 +114,25 @@
         android:layout_columnWeight="1"
         android:text="6" />
 
+
+    <Button
+        android:id="@+id/button_divide"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="/" />
+
     <Button
         android:id="@+id/button_minus"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:text="-" />
 
+
+    <Button
+        android:id="@+id/button_tan"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="tan" />
 
     <Button
         android:id="@+id/button_7"
@@ -131,18 +152,6 @@
         android:layout_columnWeight="1"
         android:text="9" />
 
-    <Button
-        android:id="@+id/button_multiply"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="*" />
-
-
-    <Button
-        android:id="@+id/button_dot"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="." />
 
     <Button
         android:id="@+id/button_0"
@@ -150,11 +159,6 @@
         android:layout_columnWeight="1"
         android:text="0" />
 
-    <Button
-        android:id="@+id/button_divide"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:text="/" />
 
     <Button
         android:id="@+id/button_equal"
