@@ -1,8 +1,6 @@
 package com.example.a37949.fragmentbestpractice;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +10,8 @@ import android.widget.TextView;
 public class NewsContentFragment extends Fragment {
     private View view;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //加载我们刚刚创建的news_content_frag布局
         view = inflater.inflate(R.layout.news_content_frag, container, false);
         return view;

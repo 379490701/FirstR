@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+双页模式下，同时引入两个碎片，并将新闻内容的碎片放到了一个FragmentLayout布局下，而这个布局id正是news_content_layout
+因此，能够找到这个id的时候就是双页模式，否则就是单页模式
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_title_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <fragment
+        android:id="@+id/news_title_fragment"
+        android:name="com.example.a37949.fragmentbestpractice.NewsTitleFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:id="@+id/news_content_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
+
+        <fragment
+            android:id="@id/news_content_fragment"
+            android:name="com.example.a37949.fragmentbestpractice.NewsContentFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</LinearLayout>
+
