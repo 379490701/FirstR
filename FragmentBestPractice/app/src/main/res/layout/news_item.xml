@@ -9,19 +9,21 @@
         android:id="@+id/news_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:ellipsize="end"
+        android:gravity="center"
         android:maxLines="1"
-        android:paddingLeft="10dp"
-        android:paddingTop="15dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="10dp"
         android:paddingRight="10dp"
-        android:paddingBottom="15dp"
-        android:textSize="18sp" />
+        android:paddingBottom="6dp"
+        android:textSize="19sp" />
 
+    <!--这是分界线-->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#000" />
+        android:background="#d3d3d3" />
+    <!--这是分界线-->
 
 </LinearLayout><!--
 padding给控件周围加上补白

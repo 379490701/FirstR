@@ -4,7 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
+import android.view.View;
+import android.widget.Toast;
 
+//通过点击列表获取某个项目信息的activity
 public class NewsContentActivity extends AppCompatActivity {
 
     public static void actionStart(Context context, String newsTitle, String newsContent) {

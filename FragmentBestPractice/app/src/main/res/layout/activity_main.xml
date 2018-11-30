@@ -2,10 +2,35 @@
 
 <!--单页模式下，只会加载一个新闻标题的碎片-->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/news_title_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:columnCount="2">
+
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:background="#ddf3ff"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="53dp"
+            android:text="查找" />
+
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#d3d3d3" />
 
     <fragment
         android:id="@+id/news_title_fragment"
@@ -13,5 +38,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</FrameLayout>
+</LinearLayout>
 

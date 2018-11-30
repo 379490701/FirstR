@@ -5,6 +5,21 @@
     android:orientation="vertical">
 
     <!--用于显示新闻列表的RecyclerView-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e8e8ff"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="单词列表"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/news_title_recycler_view"
         android:layout_width="match_parent"

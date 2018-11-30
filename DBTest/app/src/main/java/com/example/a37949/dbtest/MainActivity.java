@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,11 +23,12 @@ public class MainActivity extends AppCompatActivity {
         //通过构造函数将数据库指定命名为BookStore.db，版本号指定为1
         dbHelper = new MyDataBaseHelper(this, "BookStore.db", null, 1);
 
-        final Button createDatabase = (Button) findViewById(R.id.create_database);
+        Button createDatabase = (Button) findViewById(R.id.create_database);
         Button addData = (Button) findViewById(R.id.add_data);
         Button updateDate = (Button) findViewById(R.id.update_data);
         Button deleteDate = (Button) findViewById(R.id.delete_data);
         Button queryDate = (Button) findViewById(R.id.query_data);
+        SearchView searchView = (SearchView) findViewById(R.id.search_view);
 
         //创建点击事件
         createDatabase.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
                     } while (cursor.moveToNext());
                 }
                 cursor.close();
+            }
+        });
+
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
             }
         });
 

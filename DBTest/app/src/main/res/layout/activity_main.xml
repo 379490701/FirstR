@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:columnCount="2"
     tools:context=".MainActivity">
+
+    <TextView
+        android:layout_columnSpan="2"
+        android:background="#e8e8ff"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="单词列表"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_columnSpan="2"
+        android:background="#000" />
+
+    <SearchView
+        android:id="@+id/search_view"
+        android:background="#ddf3ff"
+        android:layout_columnWeight="100"
+        android:inputType="text" />
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2dp"-->
+        <!--android:background="#d3d3d3" />-->
 
     <Button
         android:id="@+id/create_database"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
         android:text="Create database" />
 
-    <Button
-        android:id="@+id/add_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add data" />
+    <!--<Button-->
+        <!--android:id="@+id/add_data"-->
+        <!--android:text="Add data" />-->
 
-    <Button
-        android:id="@+id/update_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Update data" />
+    <!--<Button-->
+        <!--android:id="@+id/update_data"-->
+        <!--android:text="Update data" />-->
 
-    <Button
-        android:id="@+id/delete_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete data" />
+    <!--<Button-->
+        <!--android:id="@+id/delete_data"-->
+        <!--android:text="Delete data" />-->
 
-    <Button
-        android:id="@+id/query_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Query data" />
+    <!--<Button-->
+        <!--android:id="@+id/query_data"-->
+        <!--android:text="Query data" />-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="这是一次更新" />
-
-</LinearLayout>
+</GridLayout>
