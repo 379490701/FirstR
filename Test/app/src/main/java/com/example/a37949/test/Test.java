@@ -21,9 +21,9 @@ public class Test extends AppCompatActivity implements ItemFragment.OnListFragme
 //            @Override
 //            public void onClick(View v) {
 //
-//                //隐式启动一个新活动
-//                Intent intent = new Intent("com.example.activitytest.ACTION_START");
-//                intent.addCategory("com.example.activitytest.MY_CATEGORY");
+                //隐式启动一个新活动
+                Intent intent = new Intent("com.example.activitytest.ACTION_START");
+                intent.addCategory("com.example.activitytest.MY_CATEGORY");
 //
 //                //启动一个浏览器新活动
 //                Intent intent = new Intent(Intent.ACTION_VIEW);

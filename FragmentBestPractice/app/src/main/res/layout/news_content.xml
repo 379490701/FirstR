@@ -6,6 +6,18 @@
     android:orientation="vertical"
     tools:context=".NewsContentActivity">
 
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add" />
+
+    <Button
+        android:id="@+id/look"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="生词本" />
+
     <fragment
         android:id="@+id/news_content_fragment"
         android:name="com.example.a37949.fragmentbestpractice.NewsContentFragment"

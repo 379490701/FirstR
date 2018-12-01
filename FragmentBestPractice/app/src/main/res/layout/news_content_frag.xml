@@ -20,6 +20,7 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -30,8 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="15dp"
             android:background="#ddf3ff"
+            android:padding="15dp"
             android:textSize="18sp" />
 
     </LinearLayout>
