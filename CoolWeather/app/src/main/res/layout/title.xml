@@ -10,13 +10,14 @@
 
     <Button
         android:id="@+id/nav_button"
-        android:layout_width="40dp"
+        android:layout_width="44dp"
         android:layout_height="30dp"
+
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:background="#8000"
-        android:text="HOME" />
+        android:text="HOME"
+        android:background="#0000" />
 
     <TextView
         android:id="@+id/title_city"
