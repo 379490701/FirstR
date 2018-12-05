@@ -1,5 +1,6 @@
 package com.example.a37949.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.a37949.coolweather.gson.Forecast;
 import com.example.a37949.coolweather.gson.Weather;
+import com.example.a37949.coolweather.service.AutoUpdateService;
 import com.example.a37949.coolweather.util.HttpUtil;
 import com.example.a37949.coolweather.util.Utility;
 
@@ -216,6 +218,11 @@ public class WeatherActivity extends AppCompatActivity {
         sportText.setText(sport);
         //设置完所有数据之后将ScrollView重新变成可见
         weatherLayout.setVisibility(View.VISIBLE);
+        //最后加入启动AutoUpdateService这个服务的代码
+        //这样只要一旦选中某个城市并成功更新天气之后
+        //AutoUpdateService就一直在后台运行，并保证每8小时更新一次天气
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     //加载必应每日一图
