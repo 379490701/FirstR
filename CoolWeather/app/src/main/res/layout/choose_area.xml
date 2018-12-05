@@ -5,6 +5,13 @@
     android:background="#fff"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
     <!--
     遍历全国省市县的功能后面会复用，因此将界面写在碎片中
     定义了一个头布局来作为标题栏：

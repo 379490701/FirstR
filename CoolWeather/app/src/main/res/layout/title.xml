@@ -12,19 +12,21 @@
         android:id="@+id/nav_button"
         android:layout_width="44dp"
         android:layout_height="30dp"
-
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
+        android:background="#0000"
         android:text="HOME"
-        android:background="#0000" />
+        android:textColor="#fff"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/title_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/title_update_time"
@@ -34,6 +36,6 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
         android:textColor="#fff"
-        android:textSize="16sp" />
+        android:textSize="25sp" />
 
 </RelativeLayout>
