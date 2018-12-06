@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">天气早知道</string>
     <string name="back">&#60;</string>
+    <string name="fragment_title_background_color">#013ADF</string>
 </resources>

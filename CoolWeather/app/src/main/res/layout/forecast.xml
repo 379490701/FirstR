@@ -24,6 +24,59 @@
         android:textSize="20sp" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+
+        <!--
+        放置了4个TextView
+        一个用于显示天气预报日期
+        一个用于显示天气预概况
+        另外两个用于显示当天的最高温度和最低温度
+        -->
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="日期"
+            android:textAlignment="center"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="天气"
+            android:textAlignment="center"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="最高气温"
+            android:textAlignment="center"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="最低气温"
+            android:textAlignment="center"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/forecast_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -16,7 +16,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="2"
+        android:layout_weight="1"
+        android:textAlignment="center"
         android:textColor="#fff" />
 
     <TextView
@@ -26,6 +27,7 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:gravity="center"
+        android:textAlignment="center"
         android:textColor="#fff" />
 
     <TextView
@@ -35,6 +37,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="right"
+        android:textAlignment="center"
         android:textColor="#fff" />
 
     <TextView
@@ -44,6 +47,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="right"
+        android:textAlignment="center"
         android:textColor="#fff" />
 
 </LinearLayout>
