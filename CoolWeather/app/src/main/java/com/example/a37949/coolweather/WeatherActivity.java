@@ -180,7 +180,7 @@ public class WeatherActivity extends AppCompatActivity {
     private void showWeatherInfo(Weather weather) {
         //从Weather对象中获取数据，然后显示到相应控件上
         String cityName = weather.basic.cityName;
-        String updateTime = "更新时间" + weather.basic.update.updateTime.split(" ")[1];
+        String updateTime = "更新于" + weather.basic.update.updateTime.split(" ")[1];
         String degree = weather.now.temperature + "℃";
         String weatherInfo = weather.now.more.info;
 

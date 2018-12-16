@@ -39,7 +39,7 @@ public class SearchActivity extends AppCompatActivity {
                 }
             } while (cursor.moveToNext());
             if (i == 0) {
-                show_research.setText("未找到该单词！7");
+                show_research.setText("未找到该单词！");
             }
         }
         cursor.close();
