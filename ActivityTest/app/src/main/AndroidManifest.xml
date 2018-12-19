@@ -15,9 +15,13 @@
             android:label="bug计算器">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Transform" />
+        <activity android:name=".Conversion" />
+        <activity android:name=".Help"></activity>
     </application>
 
 </manifest>

@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/add_item"
-        android:title="Add" />
+        android:id="@+id/transform"
+        android:title="进制转换" />
+
     <item
-        android:id="@+id/remove_item"
-        android:title="Remove" />
+        android:id="@+id/conversion"
+        android:title="单位换算" />
+
+    <item
+        android:id="@+id/help"
+        android:title="使用帮助" />
+
+    <item
+        android:id="@+id/finish"
+        android:title="退出" />
+
 </menu>

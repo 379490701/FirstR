@@ -1,13 +1,18 @@
 package com.example.a37949.activitytest;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.math.BigDecimal;
 import java.util.Stack;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
@@ -15,6 +20,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     Button button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_0;
     Button button_minus, button_divide, button_dot, button_multiply, button_equal, button_left, button_right, button_delete, button_clear, button_plus;
     Button button_sqrt, button_sin, button_cos, button_tan;
+    Button button_power, button_fraction, button_logarithm, button_factorial;
     TextView text;
     boolean clear_flag;
 
@@ -33,13 +39,17 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
     //注册事件
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+
         text = findViewById(R.id.text_show);
+        button_logarithm = findViewById(R.id.button_logarithm);
+        button_fraction = findViewById(R.id.button_fraction);
+        button_factorial = findViewById(R.id.button_factorial);
+        button_power = findViewById(R.id.button_power);
         button_cos = findViewById(R.id.button_cos);
         button_tan = findViewById(R.id.button_tan);
         button_sin = findViewById(R.id.button_sin);
@@ -65,6 +75,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         button_right = findViewById(R.id.button_right);
         button_delete = findViewById(R.id.button_delete);
 
+        button_logarithm.setOnClickListener(this);
+        button_factorial.setOnClickListener(this);
+        button_fraction.setOnClickListener(this);
+        button_power.setOnClickListener(this);
         button_tan.setOnClickListener(this);
         button_cos.setOnClickListener(this);
         button_sin.setOnClickListener(this);
@@ -127,13 +141,45 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 }
                 text.setText(string + " " + ((Button) v).getText() + " ");//把string中的内容和点击动作获得的内容显示在输出框中
                 break;
+            case R.id.button_logarithm:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                }
+                text.setText(string + " ln");//把string中的内容和点击动作获得的内容显示在输出框中
+                break;
+            case R.id.button_fraction:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                }
+                text.setText(string + "^(-1)");
+                break;
+            case R.id.button_factorial:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                }
+                text.setText(string + "!");
+                break;
+            case R.id.button_power:
+                if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
+                    clear_flag = false;//清空标志置成false
+                    string = "";//string置成空
+                    text.setText("");//输出框置成空
+                }
+                text.setText(string + "^");
+                break;
             case R.id.button_sin:
                 if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
                     clear_flag = false;//清空标志置成false
                     string = "";//string置成空
                     text.setText("");//输出框置成空
                 }
-                text.setText(string + " s ");
+                text.setText(string + " sin");
                 break;
             case R.id.button_cos:
                 if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
@@ -141,7 +187,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     string = "";//string置成空
                     text.setText("");//输出框置成空
                 }
-                text.setText(string + " c ");
+                text.setText(string + " cos");
                 break;
             case R.id.button_tan:
                 if (clear_flag) {//如果清空标志=true（输出结果之后，清空标志置成true）
@@ -149,7 +195,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     string = "";//string置成空
                     text.setText("");//输出框置成空
                 }
-                text.setText(string + " t ");
+                text.setText(string + " tan");
                 break;
             case R.id.button_plus:
             case R.id.button_minus:
@@ -200,27 +246,36 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.button_equal:
                 Log.d(TAG, "点击了等号按钮，输出结果");
-                if (!string.contains(" ")) {//不包含运算符，不进行运算（含运算符必含空格）
-                    text.setText(string);
+                String str = text.getText().toString();
+                if (str.contains("ln") || str.contains("sin") || str.contains("cos") || str.contains("tan") || str.contains("^") || str.contains("^(-1)") || str.contains("!")) {
+                    str = str.replace("!", " ! ");
+                    str = str.replace("ln", "l ");
+                    str = str.replace("^(-1)", " f ");//求分之一
+                    str = str.replace("^", " ^ ");
+                    str = str.replace("sin", "s ");
+                    str = str.replace("cos", "c ");
+                    str = str.replace("tan", "t ");
+                }
+                if (!str.contains(" ")) {//不包含运算符，不进行运算（含运算符必含空格）
+                    text.setText(str);
                 } else {
                     i = 0;
-                    while (i < string.length()) {
+                    while (i < str.length()) {
                         char s;
                         i++;
-                        if (i < string.length()) {
-                            s = string.charAt(i);
+                        if (i < str.length()) {
+                            s = str.charAt(i);
                         } else {
                             s = '\0';
                         }
-                        if (string.charAt(i - 1) == ' ' && s >= '0' && s <= '9') {
+                        if ((str.charAt(i - 1) == ' ' && s >= '0' && s <= '9') || s == 'f' || s == '!') {
                             value = 1;//运算符后面接数字才具有运算价值
                         }
                     }
                     if (value == 0) {
-                        text.setText(string);
+                        text.setText(str);
                         break;
                     }
-                    String str = text.getText().toString();
                     double res = Result(str);
                     text.setText(res + "");
                 }
@@ -233,6 +288,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         switch (s) {
             case '(':
                 return 4;
+            case '!':
+            case 'l':
+            case 'f':
+            case '^':
             case '√':
             case 's':
             case 'c':
@@ -256,6 +315,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         double j, tmp = 0, buf = 1, sum, res = 0;
         Stack num = new Stack();
         Stack opt = new Stack();
+
         while ((!opt.empty() || i < str.length()) && error == 0) {//读取字符串，当字符串不为空或运算符栈不为空时
             char s;
             if (i < str.length()) {
@@ -328,12 +388,33 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                             break;
                         case '√':
                             num.push(Math.sqrt((double) num.pop()));
+                            break;
                         case 's':
-                            num.push(Math.sin((double) num.pop()));
+                            BigDecimal temp_sin = new BigDecimal(Math.sin(Math.toRadians((double) num.pop())));
+                            num.push(temp_sin.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+                            break;
                         case 'c':
-                            num.push(Math.cos((double) num.pop()));
+                            BigDecimal temp_cos = new BigDecimal(Math.cos(Math.toRadians((double) num.pop())));
+                            num.push(temp_cos.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+                            break;
                         case 't':
-                            num.push(Math.tan((double) num.pop()));
+                            BigDecimal temp_tan = new BigDecimal(Math.tan(Math.toRadians((double) num.pop())));
+                            num.push(temp_tan.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+                            break;
+                        case '^':
+                            j = (double) num.pop();
+                            num.push(Math.pow(((double) num.pop()), j));
+                            break;
+                        case 'f':
+                            num.push(1 / (double) num.pop());
+                            break;
+                        case '!':
+                            Double obj = Double.parseDouble(num.pop() + "");
+                            num.push((double) getNFactorial(obj.intValue()));
+                            break;
+                        case 'l':
+                            num.push(Math.log((double) num.pop()));
+                            break;
                     }
                     continue;
                 }//if如果（字符为空，且操作符栈不为空）或（字符为右括号）且（运算符栈顶不为左括号）或（字符的优先级要小于栈顶元素的优先级）
@@ -345,62 +426,44 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         return (double) num.pop();
     }//Result()
 
-    //简单的运算方法
-    private void getResult() {
-        String str = text.getText().toString();//获得已输入的内容，存在str中
-        if (!str.contains(" ")) {//不包含运算符，不进行运算（含运算符必含空格）
-            Log.d(TAG, "不包含运算符，不进行运算");
-            return;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.finish:
+                Toast.makeText(FirstActivity.this, "程序退出", Toast.LENGTH_SHORT).show();
+                finish();
+                break;
+            case R.id.transform:
+                Toast.makeText(FirstActivity.this, "进制转换", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FirstActivity.this, Transform.class);
+                startActivity(intent);
+                break;
+            case R.id.conversion:
+                Toast.makeText(FirstActivity.this, "单位换算", Toast.LENGTH_SHORT).show();
+                intent = new Intent(FirstActivity.this, Conversion.class);
+                startActivity(intent);
+                break;
+            case R.id.help:
+                Toast.makeText(FirstActivity.this, "使用帮助", Toast.LENGTH_SHORT).show();
+                intent = new Intent(FirstActivity.this, Help.class);
+                startActivity(intent);
+                break;
         }
-        clear_flag = true;//运算完成一次自动清空
-        if (!str.contains(")")) {
-            String str1 = str.substring(0, str.indexOf(" "));//截取运算符之前的字符，位置为从0开始到第一个空格出现的地方
-            String str2 = str.substring(str.indexOf(" ") + 1, str.indexOf(" ") + 2);//截取运算符，位置为从第一个空格到第二个空格之间
-            String str3 = str.substring(str.indexOf(" ") + 3);//截取运算符后面的数字
-            double result = 0;
-            if (!str1.equals("") && !str3.equals("")) {//如果运算数1和运算数2均不为空
-                //将字符类型转化为数值类型
-                double num1 = Double.parseDouble(str1);
-                double num2 = Double.parseDouble(str3);
-                //加减乘除运算，得到运算结果result
-                if (str2.equals("+")) {
-                    result = num1 + num2;
-                } else if (str2.equals("-")) {
-                    result = num1 - num2;
-                } else if (str2.equals("*")) {
-                    result = num1 * num2;
-                } else if (str2.equals("/")) {
-                    if (num2 == 0) {
-                        result = 0;
-                    } else {
-                        result = num1 / num2;
-                    }
-                }
-                //小数点位数精确
-                if (!str1.contains(".") && !str3.contains(".") && !str2.equals("/")) {//如果运算数1和运算数2均为整数，且非除法
-                    int r = (int) result;
-                    text.setText(r + "");
-                } else {
-                    text.setText(result + "");
-                }
-            } else if (str1.equals("") && !str3.equals("")) {//如果运算数1为空，且运算数2不为空
-                double num2 = Double.parseDouble(str3);
-                if (str2.equals("+")) {
-                    result = 0 + num2;
-                } else if (str2.equals("-")) {
-                    result = 0 - num2;
-                } else if (str2.equals("/") || str2.equals("*")) {
-                    result = 0;
-                }
-                Log.d(TAG, "运算数1为空，且运算数2不为空");
-                //小数点位数精确
-                if (!str3.contains(".")) {
-                    int r = (int) result;
-                    text.setText(r + "");
-                } else {
-                    text.setText(result + "");
-                }
-            }
+        return true;
+    }
+
+    //阶乘
+    public static long getNFactorial(int n) {
+        if (n == 0) {
+            return 1;
         }
-    }//getReslut()
+        return n * getNFactorial(n - 1);
+    }
+
 }

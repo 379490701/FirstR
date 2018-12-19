@@ -1,61 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="6"
+    android:background="#1F1F1F"
+    android:columnCount="7"
     android:orientation="horizontal">
 
     <TextView
         android:id="@+id/text_show"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_columnSpan="6"
+        android:layout_height="110dp"
+        android:layout_columnSpan="7"
+        android:background="#fff"
         android:gravity="bottom|right"
-        android:textSize="70dp" />
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/button_power"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="#0000"
+        android:text="^"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_clear"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="C" />
+        android:background="#0000"
+        android:text="C"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_left"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="(" />
+        android:background="#0000"
+        android:text="("
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_right"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text=")" />
+        android:background="#0000"
+        android:text=")"
+        android:textColor="#fff" />
 
 
     <Button
         android:id="@+id/button_sqrt"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="√" />
+        android:background="#0000"
+        android:text="√"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_delete"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="Delete" />
+        android:background="#0000"
+        android:text="Delete"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_dot"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="." />
+        android:background="#0000"
+        android:text="."
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/button_fraction"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="#0000"
+        android:text="1/X"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_sin"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="sin" />
+        android:background="#0000"
+        android:text="sin"
+        android:textColor="#fff" />
 
 
     <Button
@@ -80,20 +111,35 @@
         android:id="@+id/button_plus"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="+" />
+        android:background="#0000"
+        android:text="+"
+        android:textColor="#fff" />
 
 
     <Button
         android:id="@+id/button_multiply"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="*" />
+        android:background="#0000"
+        android:text="*"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/button_logarithm"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="#0000"
+        android:text="ln"
+        android:textColor="#fff" />
+
 
     <Button
         android:id="@+id/button_cos"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="cos" />
+        android:background="#0000"
+        android:text="cos"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_4"
@@ -119,20 +165,33 @@
         android:id="@+id/button_divide"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="/" />
+        android:background="#0000"
+        android:text="/"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_minus"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="-" />
+        android:background="#0000"
+        android:text="-"
+        android:textColor="#fff" />
 
+    <Button
+        android:id="@+id/button_factorial"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="#0000"
+        android:text="X!"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_tan"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:text="tan" />
+        android:background="#0000"
+        android:text="tan"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_7"
@@ -166,6 +225,8 @@
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:layout_gravity="fill_vertical"
-        android:text="=" />
+        android:background="#0000"
+        android:text="="
+        android:textColor="#fff" />
 
 </GridLayout>
