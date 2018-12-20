@@ -40,7 +40,6 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         //执行SQL语句
         db.execSQL(CREATE_WORD_LIST);//一个单词表
         db.execSQL(CREATE_NEW_WORD);//一个生词本

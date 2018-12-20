@@ -20,7 +20,7 @@
             android:id="@+id/search_view"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:background="#ddf3ff"
+            android:background="@drawable/edit_background"
             android:inputType="text" />
 
         <Button

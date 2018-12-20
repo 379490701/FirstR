@@ -6,17 +6,26 @@
     android:orientation="vertical"
     tools:context=".NewsContentActivity">
 
-    <Button
-        android:id="@+id/add"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/look"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="生词本" />
+        <Button
+            android:id="@+id/add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="加入生词本" />
+
+        <Button
+            android:id="@+id/look"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="查看生词本" />
+
+    </LinearLayout>
 
     <fragment
         android:id="@+id/news_content_fragment"

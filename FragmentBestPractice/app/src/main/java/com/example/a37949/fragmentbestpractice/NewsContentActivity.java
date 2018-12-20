@@ -5,10 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import static com.example.a37949.fragmentbestpractice.MainActivity.db;
 
@@ -40,7 +38,6 @@ public class NewsContentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String word_content = getIntent().getStringExtra("news_title");
                 String word_meaning = getIntent().getStringExtra("news_content");
-//                Toast.makeText(NewsContentActivity.this, word, Toast.LENGTH_SHORT).show();
 
                 //开始组装数据
                 ContentValues values = new ContentValues();

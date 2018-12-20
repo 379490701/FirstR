@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,15 +26,17 @@ public class SearchActivity extends AppCompatActivity {
         //查询Book表中所有的数据
         Cursor cursor = db.query("Book", null, null, null, null, null, null);
         int i = 0;
+        String string = "";
         if (cursor.moveToFirst()) {
             do {
                 //遍历Cursor对象，取出数据并打印
                 String name = cursor.getString(cursor.getColumnIndex("name"));
                 String author = cursor.getString(cursor.getColumnIndex("author"));
-                if (name.equals(text)) {
-                    show_research.setText(author);
-                    i = 1;//找到了
-                    break;
+
+                if (name.contains(text)) {
+                    show_research.setText(string + "\n" + name + " " + author + "\n");
+                    string = (String) show_research.getText();
+                    i = 1;//找到了含有text的一个条目
                 }
             } while (cursor.moveToNext());
             if (i == 0) {
