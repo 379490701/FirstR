@@ -38,7 +38,6 @@ public class NewsContentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String word_content = getIntent().getStringExtra("news_title");
                 String word_meaning = getIntent().getStringExtra("news_content");
-
                 //开始组装数据
                 ContentValues values = new ContentValues();
                 values.put("word_content", word_content);

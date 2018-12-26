@@ -59,7 +59,6 @@ public class NewsTitleFragment extends Fragment {
     //获取展示信息
     private List<News> getNews() {
         List<News> newsList = new ArrayList<>();
-
         //查询Book表中所有的数据
         Cursor cursor = db.query("Book", null, null, null, null, null, null);
         if (cursor.moveToFirst()) {

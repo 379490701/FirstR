@@ -16,13 +16,10 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
         Intent intent = getIntent();
         String text = intent.getStringExtra("text");
-
         TextView show_research = (TextView) findViewById(R.id.show_research);
         Toast.makeText(SearchActivity.this, text, Toast.LENGTH_SHORT).show();
-
         //查询Book表中所有的数据
         Cursor cursor = db.query("Book", null, null, null, null, null, null);
         int i = 0;
@@ -32,7 +29,6 @@ public class SearchActivity extends AppCompatActivity {
                 //遍历Cursor对象，取出数据并打印
                 String name = cursor.getString(cursor.getColumnIndex("name"));
                 String author = cursor.getString(cursor.getColumnIndex("author"));
-
                 if (name.contains(text)) {
                     show_research.setText(string + "\n" + name + " " + author + "\n");
                     string = (String) show_research.getText();

@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //实例化媒体播放器
     private MediaPlayer mediaPlayer = new MediaPlayer();
-
     //进度条
     private SeekBar music_length;
     //进度条文本

@@ -16,7 +16,7 @@ public class NewWordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_word);
         TextView newWord = findViewById(R.id.new_word);
-        //查询Book表中所有的数据
+        //查询NewWord表中所有的数据
         Cursor cursor = db.query("NewWord", null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
